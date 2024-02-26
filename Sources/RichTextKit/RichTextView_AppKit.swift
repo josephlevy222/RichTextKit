@@ -186,8 +186,8 @@ open class RichTextView: NSTextView, RichTextViewComponent {
 public extension RichTextView {
 
     /// The text view's layout manager, if any.
-    var layoutManagerWrapper: NSTextLayoutManager? {
-        textLayoutManager
+    var layoutManagerWrapper: NSLayoutManager? {
+        layoutManager
     }
 
     /// The spacing between the text view edges and its text.

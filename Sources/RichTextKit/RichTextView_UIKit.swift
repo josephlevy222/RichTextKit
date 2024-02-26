@@ -32,9 +32,7 @@ open class RichTextView: UITextView, RichTextViewComponent {
         data: Data,
         format: RichTextDataFormat = .archivedData
     ) throws {
-		//if #available(iOS 16, *) { self.init(usingTextLayoutManager: false) }
-		//else {
-		self.init() //}
+		self.init()
         try self.setup(with: data, format: format)
     }
 
@@ -42,9 +40,7 @@ open class RichTextView: UITextView, RichTextViewComponent {
         string: NSAttributedString,
         format: RichTextDataFormat = .archivedData
     ) {
-		//if #available(iOS 16, *) { self.init(usingTextLayoutManager: false) }
-		//else {
-		self.init() //}
+		self.init()
         self.setup(with: string, format: format)
     }
 
@@ -366,12 +362,16 @@ private extension UIDropSession {
 // MARK: - Public Extensions
 
 public extension RichTextView {
-
-    /// The text view's layout manager, if any.
-    var layoutManagerWrapper: NSLayoutManager? {
-        layoutManager
-    }
-
+	
+	/// The text view's layout manager, if any.
+	var layoutManagerWrapper: NSLayoutManager? {
+		layoutManager
+	}
+	@available(iOS 16.0, *)
+	var textLayoutManagerWrapper: NSTextLayoutManager? {
+		textLayoutManager
+	}
+	
     /// The spacing between the text view edges and its text.
     var textContentInset: CGSize {
         get {

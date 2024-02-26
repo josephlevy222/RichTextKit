@@ -53,7 +53,7 @@ public protocol RichTextViewComponent: AnyObject,
     #if iOS || macOS || os(tvOS) || os(visionOS)
     /// The text view's layout manager, if any.
     var layoutManagerWrapper: NSLayoutManager? { get }
-
+	var textLayoutManagerWrapper: NSTextLayoutManager? { get }
     /// The text view's text storage, if any.
     var textStorageWrapper: NSTextStorage? { get }
     #endif
@@ -98,7 +98,9 @@ public protocol RichTextViewComponent: AnyObject,
     /// Undo the latest change.
     func undoLatestChange()
 }
-
+extension RichTextViewComponent {
+	public var textLayoutManagerWrapper: NSTextLayoutManager? { nil }
+}
 // MARK: - Public Extension
 
 public extension RichTextViewComponent {
