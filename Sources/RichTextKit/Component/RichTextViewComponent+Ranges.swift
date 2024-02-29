@@ -18,6 +18,7 @@ extension RichTextViewComponent {
         #if os(watchOS)
         return notFoundRange
         #else
+		//if let textManager = textLayoutManagerWrapper, let storage = textStorageWrapper {
         guard
             let manager = layoutManagerWrapper,
             let storage = textStorageWrapper
@@ -25,7 +26,7 @@ extension RichTextViewComponent {
         let string = storage.string as NSString
         let locationRange = NSRange(location: location, length: 0)
         let lineRange = string.lineRange(for: locationRange)
-        return manager.characterRange(forGlyphRange: lineRange, actualGlyphRange: nil)
+		return manager.characterRange(forGlyphRange: lineRange, actualGlyphRange: nil)
         #endif
     }
 

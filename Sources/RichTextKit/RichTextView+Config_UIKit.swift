@@ -15,7 +15,7 @@ public extension RichTextView {
      This type can be used to configure a ``RichTextEditor``.
      */
     struct Configuration {
-
+		public var size: Binding<CGSize>?
         /**
          Create a custom configuration.
 
@@ -29,12 +29,15 @@ public extension RichTextView {
             isScrollingEnabled: Bool = true,
             allowsEditingTextAttributes: Bool = true,
             autocapitalizationType: UITextAutocapitalizationType = .sentences,
-            spellCheckingType: UITextSpellCheckingType = .no
+            spellCheckingType: UITextSpellCheckingType = .no,
+			size: Binding<CGSize>? = nil 
         ) {
             self.isScrollingEnabled = isScrollingEnabled
             self.allowsEditingTextAttributes = allowsEditingTextAttributes
             self.autocapitalizationType = autocapitalizationType
             self.spellCheckingType = spellCheckingType
+			self.size = size
+			
         }
 
         /// Whether or not the editor should scroll.

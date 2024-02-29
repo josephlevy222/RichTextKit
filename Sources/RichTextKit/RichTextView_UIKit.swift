@@ -24,13 +24,15 @@ extension RichTextView: UIDropInteractionDelegate {}
  make them implement ``RichTextViewComponent``, which is the
  protocol that is used within this library.
  */
+import SwiftUI
 open class RichTextView: UITextView, RichTextViewComponent {
 
     // MARK: - Initializers
 	
     public convenience init(
         data: Data,
-        format: RichTextDataFormat = .archivedData
+        format: RichTextDataFormat = .archivedData,
+		size: Binding<CGSize>? = nil
     ) throws {
 		self.init()
         try self.setup(with: data, format: format)
@@ -38,10 +40,12 @@ open class RichTextView: UITextView, RichTextViewComponent {
 
     public convenience init(
         string: NSAttributedString,
-        format: RichTextDataFormat = .archivedData
+		format: RichTextDataFormat = .archivedData,
+		size: Binding<CGSize>? = nil
     ) {
 		self.init()
         self.setup(with: string, format: format)
+		self.configuration.size = size
     }
 
     // MARK: - Properties

@@ -157,6 +157,14 @@ extension RichTextCoordinator {
     func syncWithTextView() {
         syncContextWithTextView()
         syncTextWithTextView()
+		if let dynamicSize = textView.configuration.size?.wrappedValue {
+			let size = CGSize(width: textView.frame.width, height: .greatestFiniteMagnitude)
+			let estimatedSize = textView.sizeThatFits(size)
+			if dynamicSize != estimatedSize {
+				DispatchQueue.main.async { self.textView.configuration.size?.wrappedValue = estimatedSize }
+			}
+		}
+		textView.scrollRangeToVisible(textView.selectedRange)
     }
 
     /// Sync the rich text context with the text view.
