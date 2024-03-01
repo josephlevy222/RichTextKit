@@ -162,7 +162,7 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
 //				context.handle(.selectRange(lastSelectedRange))
 //				context.isEditingText = true
 //			}
-		}
+//		}
 		
     }
 }
