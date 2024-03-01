@@ -65,10 +65,13 @@ public struct RichTextFormatSheet: RichTextFormatToolbarBase {
 				)
 				Divider()
             }
-            .padding(.top, -35)
+            //.padding(.top, -35)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(RTKL10n.done.text) {
+						//update context
+						context.objectWillChange.send()
+						//  textView.delegate.syncTextWithTextView()
                         dismiss()
                     }
                 }
