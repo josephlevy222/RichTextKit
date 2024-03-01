@@ -152,7 +152,7 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
 		.onChange(of: isFormatSheetPresented) { _ in
 			if isFormatSheetPresented {
 				lastSelectedRange = context.selectedRange
-				context.handle(.dismissKeyboard)
+				context.isEditingText = false
 			}
 			else {
 				context.handle(.selectRange(lastSelectedRange))
