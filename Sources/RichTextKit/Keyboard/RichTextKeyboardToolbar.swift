@@ -118,10 +118,10 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
 
     @State
     private var isFormatSheetPresented = false
-
+	@State private var lastSelectedRange = NSRange()
     @Environment(\.horizontalSizeClass)
     private var horizontalSizeClass
-
+    
     public var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: style.itemSpacing) {
@@ -151,6 +151,7 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
 		}
 		.onChange(of: isFormatSheetPresented) { _ in
 			if isFormatSheetPresented {  context.handle(.dismissKeyboard) }
+			else { context.selectedRange = lastSelectedRange }
 		}
 		
     }
