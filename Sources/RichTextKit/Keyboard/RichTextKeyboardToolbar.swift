@@ -156,6 +156,7 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
 			}
 			else {
 				context.handle(.selectRange(lastSelectedRange))
+				context.isEditingText = true
 			}
 		}
 		
