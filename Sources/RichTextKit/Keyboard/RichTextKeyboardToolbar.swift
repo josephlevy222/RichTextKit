@@ -143,21 +143,25 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
         .opacity(shouldDisplayToolbar ? 1 : 0)
         .offset(y: shouldDisplayToolbar ? 0 : style.toolbarHeight)
         .frame(height: shouldDisplayToolbar ? nil : 0)
-        .sheet(isPresented: $isFormatSheetPresented) {
-			richTextFormatSheet(
-                RichTextFormatSheet(context: context)
-            ).prefersMediumSize()
-			
+		.sheet(isPresented: $isFormatSheetPresented) {{
+			() -> FormatSheet in
+			context.toggleIsEditing()
+			defer { context.toggleIsEditing()}
+			return richTextFormatSheet(RichTextFormatSheet(context: context))
+		}()
 		}
-		.onChange(of: isFormatSheetPresented) { _ in
-			if isFormatSheetPresented {
-				lastSelectedRange = context.selectedRange
-				context.isEditingText = false
-			}
-			else {
-				context.handle(.selectRange(lastSelectedRange))
-				context.isEditingText = true
-			}
+		.prefersMediumSize()
+			
+		
+//		.onChange(of: isFormatSheetPresented) { _ in
+//			if isFormatSheetPresented {
+//				lastSelectedRange = context.selectedRange
+//				context.isEditingText = false
+//			}
+//			else {
+//				context.handle(.selectRange(lastSelectedRange))
+//				context.isEditingText = true
+//			}
 		}
 		
     }
