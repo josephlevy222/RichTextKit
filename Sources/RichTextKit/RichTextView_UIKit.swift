@@ -36,6 +36,7 @@ open class RichTextView: UITextView, RichTextViewComponent {
     ) throws {
 		self.init()
         try self.setup(with: data, format: format)
+		self.configuration.size = size
     }
 
     public convenience init(

@@ -16,7 +16,7 @@ public extension RichTextFormatToolbar {
 
         public init(
             alignments: [RichTextAlignment] = .all,
-            colorPickers: [RichTextColor] = [.foreground],
+			colorPickers: [RichTextColor] = [.foreground, .background],
             colorPickersDisclosed: [RichTextColor] = [],
             fontPicker: Bool = true,
             fontSizePicker: Bool = true,
@@ -33,11 +33,11 @@ public extension RichTextFormatToolbar {
             self.indentButtons = indentButtons
             self.lineSpacingPicker = lineSpacingPicker
             self.styles = styles
-            #if macOS
+            //#if macOS
             self.superscriptButtons = superscriptButtons
-            #else
-            self.superscriptButtons = false
-            #endif
+            //#else
+            //self.superscriptButtons = false
+            //#endif
         }
 
         public var alignments: [RichTextAlignment]

@@ -33,6 +33,7 @@ public struct RichTextFormatSheet: RichTextFormatToolbarBase {
     ) {
         self._context = ObservedObject(wrappedValue: context)
         self.config = config
+		
     }
 
     public typealias Configuration = RichTextFormatToolbar.Configuration
@@ -61,11 +62,6 @@ public struct RichTextFormatSheet: RichTextFormatToolbarBase {
 				Divider()
                 RichTextFont.ListPicker(
                     selection: $context.fontName
-				)
-				Divider()
-				RichTextFormatToolbar(
-					context: context,
-					config: config
 				)
 				Divider()
             }
