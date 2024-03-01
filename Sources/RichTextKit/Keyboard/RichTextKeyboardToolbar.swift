@@ -154,8 +154,8 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
 				lastSelectedRange = context.selectedRange
 				context.handle(.dismissKeyboard)
 			}
-			else { 
-				context.selectedRange = lastSelectedRange
+			else {
+				context.handle(.selectRange(lastSelectedRange))
 			}
 		}
 		
