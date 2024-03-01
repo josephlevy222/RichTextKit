@@ -144,10 +144,15 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
         .offset(y: shouldDisplayToolbar ? 0 : style.toolbarHeight)
         .frame(height: shouldDisplayToolbar ? nil : 0)
         .sheet(isPresented: $isFormatSheetPresented) {
-            richTextFormatSheet(
+			richTextFormatSheet(
                 RichTextFormatSheet(context: context)
             ).prefersMediumSize()
-        }
+			
+		}
+		.onChange(of: isFormatSheetPresented) { _ in
+			if isFormatSheetPresented {  context.handle(.dismissKeyboard) }
+		}
+		
     }
 }
 

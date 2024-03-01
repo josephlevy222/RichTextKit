@@ -69,9 +69,7 @@ public struct RichTextFormatSheet: RichTextFormatToolbarBase {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(RTKL10n.done.text) {
-						//update context
-						context.objectWillChange.send()
-						//  textView.delegate.syncTextWithTextView()
+						// Needs update
                         dismiss()
                     }
                 }
