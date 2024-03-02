@@ -27,6 +27,7 @@ extension RichTextCoordinator {
         subscribeToFontSize()
         subscribeToIsEditingText()
         subscribeToLineSpacing()
+		subscribeToSetFocus()
     }
 }
 
@@ -65,6 +66,11 @@ private extension RichTextCoordinator {
         }
     }
 
+	func subscribeToSetFocus() {
+		subscribe(to: context.$focus) { [weak self] _ in
+			self?.textView.becomeFirstResponder()
+		}
+	}
     // TODO: Not done yet
     func subscribeToLineSpacing() {
         // subscribe(to: context.$lineSpacing) { [weak self] in

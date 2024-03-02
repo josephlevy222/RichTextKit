@@ -77,6 +77,9 @@ public enum RichTextAction: Identifiable, Equatable, RichTextLabelValue {
 
     /// Undo the latest change.
     case undoLatestChange
+	
+	/// make keyboard show by becoming first responder
+	case setFocus
 }
 
 public extension RichTextAction {
@@ -109,6 +112,7 @@ public extension RichTextAction {
         case .stepSuperscript(let val): .richTextStepSuperscript(val)
         case .toggleStyle(let val): val.icon
         case .undoLatestChange: .richTextActionUndo
+		case .setFocus: .richTextActionFocus
         }
     }
 
@@ -158,6 +162,7 @@ public extension RichTextAction {
         case .stepSuperscript(let steps): .actionStepSuperscript(steps)
         case .toggleStyle(let style): style.titleKey
         case .undoLatestChange: .actionUndoLatestChange
+		case .setFocus: .actionSetFocus
         }
     }
 }

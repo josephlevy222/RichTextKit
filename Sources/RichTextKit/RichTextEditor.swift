@@ -150,4 +150,11 @@ public extension RichTextEditor {
     }
 }
 
+public extension RichTextEditor {
+	
+	/// Set focus
+	func setFocus() {
+		textView.becomeFirstResponder()
+	}
+}
 #endif

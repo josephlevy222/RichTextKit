@@ -38,7 +38,8 @@ public enum RTKL10n: String, CaseIterable, Identifiable {
     actionSuperscriptIncrease,
     actionSuperscriptDecrease,
     actionUndoLatestChange,
-
+	actionSetFocus,
+	
     fileFormatRtk,
     fileFormatPdf,
     fileFormatRtf,

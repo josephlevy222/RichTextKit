@@ -147,6 +147,9 @@ public class RichTextContext: ObservableObject {
 
     @Published
     public internal(set) var styles = [RichTextStyle: Bool]()
+	
+	@Published
+	public internal(set) var focus = true
 }
 
 public extension RichTextContext {
@@ -212,4 +215,10 @@ public extension RichTextContext {
     func toggleIsEditing() {
         isEditingText.toggle()
     }
+	
+	func setFocus() {
+		isEditingText = true
+		actionPublisher.send(.setFocus)
+		
+	}
 }
