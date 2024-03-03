@@ -33,7 +33,7 @@ public struct RichTextFormatToolbar: RichTextFormatToolbarBase {
         context: RichTextContext,
         config: Configuration = .standard
     ) {
-        self._context = ObservedObject(wrappedValue: context)
+        self.context = context //ObservedObject(wrappedValue: context)
         self.config = config
     }
 
