@@ -148,8 +148,8 @@ public class RichTextContext: ObservableObject {
     @Published
     public internal(set) var styles = [RichTextStyle: Bool]()
 	
-	@Published
-	public internal(set) var focus = true
+//	@Published
+//	public internal(set) var focus = true
 }
 
 public extension RichTextContext {

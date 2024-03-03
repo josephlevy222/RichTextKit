@@ -57,6 +57,7 @@ extension RichTextCoordinator {
             syncContextWithTextView()
 		case .setFocus:
 			textView.becomeFirstResponder()
+			syncContextWithTextView()
         }
     }
 }
