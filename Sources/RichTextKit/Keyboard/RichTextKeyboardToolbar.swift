@@ -147,7 +147,9 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
 			richTextFormatSheet(RichTextFormatSheet(context: context))
 		}
 		.prefersMediumSize()
-			
+		.onChange(of: isFormatSheetPresented) { showing in
+			if showing  { context.isEditingText = false }
+		}
     }
 }
 
