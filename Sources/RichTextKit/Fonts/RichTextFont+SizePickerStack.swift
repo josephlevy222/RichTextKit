@@ -64,9 +64,12 @@ private extension RichTextFont.SizePickerStack {
 
     var stack: some View {
         HStack(spacing: 2) {
+			Divider()
             stepButton(-step)
-            picker
+			Text(String(format: "%g ", context.fontSize)).foreground(.accentColor,if: true)
             stepButton(step)
+			Divider()
+			picker
         }
     }
 
@@ -108,7 +111,7 @@ struct RichTextFont_SizePickerStack_Previews: PreviewProvider {
 
         var body: some View {
             VStack {
-                Text("Size: \(context.fontSize)")
+				Text("Size: \(context.fontSize)")
                 RichTextFont.SizePickerStack(context: context)
             }
             .buttonStyle(.bordered)

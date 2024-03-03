@@ -148,19 +148,6 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
 		}
 		.prefersMediumSize()
 			
-		
-//		.onChange(of: isFormatSheetPresented) { newValue in
-//			if newValue {
-//				lastSelectedRange = context.selectedRange
-//				context.isEditingText = false
-//			}
-//			else {
-//				context.handle(.selectRange(lastSelectedRange))
-//				context.isEditingText = true
-//				context.setFocus()
-//			}
-//		}
-		
     }
 }
 

@@ -137,7 +137,7 @@ struct RichTextFormatToolbar_Previews: PreviewProvider {
                 context: context,
                 config: .init(
                     alignments: .all,
-                    colorPickers: [.foreground, .background],
+                    colorPickers: [.foreground],
                     colorPickersDisclosed: [.stroke],
                     fontPicker: true,
                     fontSizePicker: true,
@@ -150,7 +150,11 @@ struct RichTextFormatToolbar_Previews: PreviewProvider {
         var body: some View {
             VStack(spacing: 0) {
                 Color.red
+				RichTextFont.ListPicker(
+					selection: $context.fontName
+				)
                 toolbar
+			
             }
             .richTextFormatToolbarStyle(.init(
                 padding: 10,
