@@ -27,7 +27,7 @@ extension RichTextCoordinator {
         subscribeToFontSize()
         subscribeToIsEditingText()
         subscribeToLineSpacing()
-		subscribeToSetFocus()
+		
     }
 }
 
