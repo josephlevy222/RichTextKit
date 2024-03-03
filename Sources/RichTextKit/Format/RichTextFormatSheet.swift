@@ -71,6 +71,7 @@ public struct RichTextFormatSheet: RichTextFormatToolbarBase {
                     Button(RTKL10n.done.text) {
 						// Needs update
                         dismiss()
+						context.handle(.setFocus)
                     }
                 }
             }
