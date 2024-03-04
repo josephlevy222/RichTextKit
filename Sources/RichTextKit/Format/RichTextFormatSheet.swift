@@ -58,7 +58,7 @@ public struct RichTextFormatSheet: RichTextFormatToolbarBase {
 				RichTextFormatToolbar(
 					context: context,
 					config: config
-				).padding(.top)
+				).padding(.vertical)
 				Divider()
                 RichTextFont.ListPicker(
                     selection: $context.fontName
@@ -71,7 +71,7 @@ public struct RichTextFormatSheet: RichTextFormatToolbarBase {
                     Button(RTKL10n.done.text) {
                         dismiss()
 						context.handle(.setFocus)
-						
+						context.resetHighlightedRange()
                     }
                 }
             }
@@ -108,7 +108,7 @@ struct RichTextFormatSheet_Previews: PreviewProvider {
                     context: context,
                     config: .init(
                         alignments: .all,
-                        colorPickers: [.foreground, .background],
+                        colorPickers: [.foreground],
                         colorPickersDisclosed: [.stroke],
                         fontPicker: true,
                         fontSizePicker: true,
