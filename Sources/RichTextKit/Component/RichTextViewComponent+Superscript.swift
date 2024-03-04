@@ -1,5 +1,5 @@
 //
-//  RichTextViewComponent+Color.swift
+//  RichTextViewComponent+Superscript.swift
 //  RichTextKit
 //
 //  Created by Daniel Saidi on 2024-02-14.
@@ -28,6 +28,7 @@ public extension RichTextViewComponent {
         #else
         print("Faking the unsupported platform")
 		let baseline = richTextAttributes(at: selectedRange)[.baselineOffset] as? CGFloat
+		var offset = CGFloat.zero
 		if val == 0 {
 			if baseline != 0 { // increase font size
 				if let uiFont = richTextAttributes(at: selectedRange)[.font] as? UIFont {
@@ -40,10 +41,11 @@ public extension RichTextViewComponent {
 				if let uiFont = richTextAttributes(at: selectedRange)[.font] as? UIFont {
 					let smallerFont = UIFont(descriptor: uiFont.fontDescriptor, size: uiFont.pointSize*0.75)
 					setRichTextAttribute(.font, to: smallerFont, at: selectedRange)
+					offset = uiFont.pointSize*0.5 * CGFloat(val)
 				} else { print("Unsupported font for superscripts")}
 			}
 		}
-		setRichTextAttribute(.baselineOffset, to: val)
+		setRichTextAttribute(.baselineOffset, to: offset)
         #endif
     }
 
