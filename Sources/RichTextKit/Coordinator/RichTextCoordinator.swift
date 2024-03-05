@@ -158,7 +158,7 @@ extension RichTextCoordinator {
         syncContextWithTextView()
         syncTextWithTextView()
 		if let dynamicSize = textView.configuration.size?.wrappedValue {
-			let size = CGSize(width: textView.frame.width, height: .greatestFiniteMagnitude)
+			let size = CGSize(width: CGFloat.greatestFiniteMagnitude, height: .greatestFiniteMagnitude)
 			let estimatedSize = textView.sizeThatFits(size)
 			if dynamicSize != estimatedSize {
 				DispatchQueue.main.async { self.textView.configuration.size?.wrappedValue = estimatedSize }
@@ -196,7 +196,7 @@ extension RichTextCoordinator {
         sync(&context.isEditingText, with: textView.isFirstResponder)
         // sync(&context.lineSpacing, with: textView.richTextLineSpacing ?? 10.0)   TODO: Not done yet
         sync(&context.textAlignment, with: textView.richTextAlignment ?? .left)
-
+		
         RichTextColor.allCases.forEach {
             if let color = textView.richTextColor($0) {
                 context.setColor($0, to: color)

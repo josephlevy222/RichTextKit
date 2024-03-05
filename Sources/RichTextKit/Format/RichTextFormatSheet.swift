@@ -71,7 +71,6 @@ public struct RichTextFormatSheet: RichTextFormatToolbarBase {
                     Button(RTKL10n.done.text) {
                         dismiss()
 						context.handle(.setFocus)
-						context.resetHighlightedRange()
                     }
                 }
             }
