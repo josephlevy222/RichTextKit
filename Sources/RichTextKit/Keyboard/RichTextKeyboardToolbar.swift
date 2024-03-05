@@ -150,6 +150,8 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
 		.onChange(of: isFormatSheetPresented) { showing in
 			if showing  {
 				context.isEditingText = false
+			} else {
+				context.handle(.selectRange(context.selectedRange))
 			}
 		}
     }

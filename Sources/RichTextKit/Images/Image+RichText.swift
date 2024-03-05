@@ -58,6 +58,7 @@ public extension Image {
     static let richTextSuperscriptIncrease = symbol("textformat.superscript")
 	
 	static let richTextActionFocus = symbol("keyboard")
+	static let richTextSync = symbol("sync")
 }
 
 public extension Image {
