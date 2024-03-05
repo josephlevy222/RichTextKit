@@ -106,10 +106,10 @@ public struct RichTextEditor: ViewRepresentable {
     }
 
     public func updateUIView(_ view: UIViewType, context: Context) {
-		let selected = context.coordinator.textView.selectedRange
-		let newText = attributedString
-		context.coordinator.textView.attributedText = newText
-		context.coordinator.textView.selectedRange = selected
+//		let selected = context.coordinator.textView.selectedRange
+//		let newText =
+//		context.coordinator.textView.attributedText = newText
+//		context.coordinator.textView.selectedRange = selected
 	}
 
     #else
