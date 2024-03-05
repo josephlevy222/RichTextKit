@@ -81,7 +81,6 @@ public enum RichTextAction: Identifiable, Equatable, RichTextLabelValue {
 	/// make keyboard show by becoming first responder
 	case setFocus
 	
-	case synch
 }
 
 public extension RichTextAction {
@@ -115,7 +114,6 @@ public extension RichTextAction {
         case .toggleStyle(let val): val.icon
         case .undoLatestChange: .richTextActionUndo
 		case .setFocus: .richTextActionFocus
-		case .synch: .sync
         }
     }
 
