@@ -151,7 +151,9 @@ public struct RichTextKeyboardToolbar<LeadingButtons: View, TrailingButtons: Vie
 			if showing  {
 				context.isEditingText = false
 			} else {
-				context.handle(.selectRange(context.selectedRange))
+				let selection = context.selectedRange
+				context.handle(.selectRange(NSRange()))
+				context.handle(.selectRange(selection))
 			}
 		}
     }
